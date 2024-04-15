@@ -1,4 +1,8 @@
-
+""" 
+Filename: app.py
+Author: Alex Price
+Description: The main controller for the app layouts.
+"""
 import sys
 
 from PyQt6.QtCore import Qt
@@ -6,6 +10,7 @@ from PyQt6.QtWidgets import (
     QApplication,
     QGridLayout,
     QLabel,
+    QLineEdit,
     QMainWindow,
     QPushButton,
     QStackedLayout,
@@ -26,7 +31,7 @@ class Color(QWidget):
 
 class MainWindow(QMainWindow):
     def __init__(self):
-        super().__init__()
+        super(MainWindow, self).__init__()
 
         self.setWindowTitle("Recipe Index")
 
@@ -37,10 +42,17 @@ class MainWindow(QMainWindow):
         pagelayout.addLayout(button_layout)
         pagelayout.addLayout(self.stacklayout)
 
+        widget = QLabel("Recipe Index")
+        font = widget.font()
+        font.setPointSize(30)
+        #widget.setFont(Josefin Sans)
+        widget.setAlignment(Qt.AlignmentFlag.AlignHCenter)
+        self.stacklayout.addWidget(widget)
+
         btn = QPushButton("Go!")
         btn.pressed.connect(self.activate_tab_1)
         button_layout.addWidget(btn)
-        self.stacklayout.addWidget(Color("brown"))
+        self.stacklayout.addWidget(Color("#E3CAA5"))
 
         btn = QPushButton("Go!")
         btn.pressed.connect(self.activate_tab_2)
@@ -55,7 +67,7 @@ class MainWindow(QMainWindow):
         btn = QPushButton("Back")
         btn.pressed.connect(self.activate_tab_1)
         button_layout.addWidget(btn)
-        self.stacklayout.addWidget(Color("brown"))
+        self.stacklayout.addWidget(Color("#E3CAA5"))
 
         widget = QWidget()
         widget.setLayout(pagelayout)
