@@ -33,8 +33,9 @@ class MainWindow(QWidget):
         home_layout = QGridLayout()
         calculator_layout = QGridLayout()
         selector_layout = QGridLayout()
-        show_layout = QGridLayout
+        show_layout = QGridLayout()
         self.stacked_layout = QStackedLayout()
+        
         # self.layout.addLayout(main_layout)
         #self.stacked_layout.addStretch()
 
@@ -70,7 +71,7 @@ class MainWindow(QWidget):
         view_button = QPushButton("Go!")
         view_button.setFont(QFont("Josefin Sans", 15))
         view_button.setStyleSheet("background-color:#CEAB93; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
-        view_button.clicked.connect(self.next_page)
+        view_button.clicked.connect(self.double_page)
         home_layout.addWidget(view_button, 2, 2, 1, 2)
 
         #edit label
@@ -117,7 +118,15 @@ class MainWindow(QWidget):
         measurement_selector = QComboBox()
         measurement_selector.setFont(QFont("Josefin Sans", 10))
         measurement_selector.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
+        measurement_selector.addItems(["tsp", "tbsp", "cups"])
         calculator_layout.addWidget(measurement_selector, 1, 1, 1, 3)
+
+        #converting measure
+        convert_measurement_selector = QComboBox()
+        convert_measurement_selector.setFont(QFont("Josefin Sans", 10))
+        convert_measurement_selector.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
+        convert_measurement_selector.addItems(["tsp", "tbsp", "cups"])
+        #calculator_layout.addWidget(convert_measurement_selector, 1, 1, 1, 3)
 
         #output label
         measurement_output_label = QLabel()
@@ -148,21 +157,58 @@ class MainWindow(QWidget):
         return_button = QPushButton("Return")
         return_button.setFont(QFont("Josefin Sans", 15))
         return_button.setStyleSheet("background-color:#CEAB93; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
-        return_button.clicked.connect(self.previous_page)
-        calculator_layout.addWidget(return_button, 4, 1, 1, 3)
+        return_button.clicked.connect(self.home_page)
+        selector_layout.addWidget(return_button, 4, 1, 1, 3)
 
-        #recipe output
-        #self.recipe_output_screen = QWidget()
-        #self.recipe_output_screen.setLayout(show_layout)
-        #self.stacked_layout.addWidget(self.recipe_output_screen)
-    
+        #go to recipe output screen
+        output_button = QPushButton("Go!")
+        output_button.setFont(QFont("Josefin Sans", 15))
+        output_button.setStyleSheet("background-color:#CEAB93; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
+        output_button.clicked.connect(self.next_page)
+        selector_layout.addWidget(output_button, 4, 2, 1, 2)
+        
+        #recipe output screen
+        self.view_recipe_screen = QWidget()
+        self.view_recipe_screen.setLayout(show_layout)
+        self.stacked_layout.addWidget(self.view_recipe_screen)
+
+        #title label
+        title_label = QLabel("Recipe Index - View")
+        title_label.setFont(QFont("Josefin Sans", 20, 800))
+        title_label.setAlignment(Qt.AlignmentFlag.AlignHCenter)
+        title_label.setStyleSheet("background-color:#AD8B73; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
+        show_layout.addWidget(title_label, 0, 0, 1, 4)  
+
+        self.setLayout(self.stacked_layout)
+        
+
     def next_page(self):
         self.stacked_layout.setCurrentIndex(
             self.stacked_layout.currentIndex() + 1)
+    
+    def double_page(self):
+        for i in range (2):
+            self.stacked_layout.setCurrentIndex(
+                self.stacked_layout.currentIndex() + 1)
+    
+    def triple_page(self):
+        for i in range (3):
+            self.stacked_layout.setCurrentIndex(
+                self.stacked_layout.currentIndex() + 1)
         
     def previous_page(self):
         self.stacked_layout.setCurrentIndex(
             self.stacked_layout.currentIndex() - 1)
+        
+    def home_page(self):
+        self.stacked_layout.setCurrentIndex(
+            self.stacked_layout.currentIndex() - 2
+        )
+    
+    def return_home_page(self):
+        self.stacked_layout.setCurrentIndex(
+            self.stacked_layout.currentIndex() - 3
+        )
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
