@@ -112,34 +112,34 @@ class MainWindow(QWidget):
         title_label.setFont(QFont("Josefin Sans", 20, 800))
         title_label.setAlignment(Qt.AlignmentFlag.AlignHCenter)
         title_label.setStyleSheet("background-color:#AD8B73; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
-        calculator_layout.addWidget(title_label, 0, 1, 1, 3)
+        calculator_layout.addWidget(title_label, 0, 0, 1, 4)
 
         #selection combo box
         measurement_selector = QComboBox()
         measurement_selector.setFont(QFont("Josefin Sans", 10))
         measurement_selector.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
-        measurement_selector.addItems(["tsp", "tbsp", "cups"])
-        calculator_layout.addWidget(measurement_selector, 1, 1, 1, 3)
+        measurement_selector.addItems(["inital measure", "tsp", "tbsp", "1/4 cups", "1/3 cups", "1/2 cups", "1 cup"])
+        calculator_layout.addWidget(measurement_selector, 1, 0, 1, 2)
 
         #converting measure
         convert_measurement_selector = QComboBox()
         convert_measurement_selector.setFont(QFont("Josefin Sans", 10))
         convert_measurement_selector.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
-        convert_measurement_selector.addItems(["tsp", "tbsp", "cups"])
-        #calculator_layout.addWidget(convert_measurement_selector, 1, 1, 1, 3)
+        convert_measurement_selector.addItems(["conversion measure","tsp", "tbsp", "1/4 cups", "1/3 cups", "1/2 cups", "1 cup"])
+        calculator_layout.addWidget(convert_measurement_selector, 1, 2, 1, 2)
 
         #output label
         measurement_output_label = QLabel()
         measurement_output_label.setFont(QFont("Josefin Sans", 10))
         measurement_output_label.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
-        calculator_layout.addWidget(measurement_output_label, 2, 0, 1, 5)
+        calculator_layout.addWidget(measurement_output_label, 3, 0, 1, 4)
 
         #back button
         return_button = QPushButton("Return")
         return_button.setFont(QFont("Josefin Sans", 15))
         return_button.setStyleSheet("background-color:#CEAB93; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
         return_button.clicked.connect(self.previous_page)
-        calculator_layout.addWidget(return_button, 4, 1, 1, 3)
+        calculator_layout.addWidget(return_button, 4, 1, 1, 2)
 
         #recipe selector screen
         self.recipe_selector_screen = QWidget()
