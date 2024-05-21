@@ -153,12 +153,18 @@ class MainWindow(QWidget):
         title_label.setStyleSheet("background-color:#AD8B73; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
         selector_layout.addWidget(title_label, 0, 0, 1, 4)
 
+        recipe_selector = QComboBox()
+        recipe_selector.setFont(QFont("Josefin Sans", 10))
+        recipe_selector.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
+        recipe_selector.addItems(["Salmon", "Quiche", "Skillet Meal", "Shrimp Risotto", "Lemon Bars", "Seven-Layer Bars", "Cowboy Cookies", "Chocolate-Chip Cookies", "Peanut-butter Cookies"])
+        selector_layout.addWidget(recipe_selector, 1, 0, 1, 4)
+
         #return
-        return_button = QPushButton("Return")
+        return_button = QPushButton("Back")
         return_button.setFont(QFont("Josefin Sans", 15))
         return_button.setStyleSheet("background-color:#CEAB93; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
         return_button.clicked.connect(self.home_page)
-        selector_layout.addWidget(return_button, 4, 1, 1, 3)
+        selector_layout.addWidget(return_button, 4, 0, 1, 2)
 
         #go to recipe output screen
         output_button = QPushButton("Go!")
@@ -178,6 +184,13 @@ class MainWindow(QWidget):
         title_label.setAlignment(Qt.AlignmentFlag.AlignHCenter)
         title_label.setStyleSheet("background-color:#AD8B73; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
         show_layout.addWidget(title_label, 0, 0, 1, 4)  
+
+        #reset button
+        reset_button = QPushButton("Back")
+        reset_button.setFont(QFont("Josefin Sans", 15))
+        reset_button.setStyleSheet("background-color:#CEAB93; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
+        reset_button.clicked.connect(self.return_home_page)
+        show_layout.addWidget(reset_button, 4, 1, 1, 2)
 
         self.setLayout(self.stacked_layout)
         
