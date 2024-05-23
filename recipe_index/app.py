@@ -4,17 +4,16 @@ Author: Alex Price
 Description: The main controller for the app layouts.
 """
 import sys
-from PyQt6.QtGui import QPalette, QColor, QFontDatabase, QFont
+from PyQt6.QtGui import QPalette, QColor, QFontDatabase, QFont, QIcon
 from PyQt6.QtCore import QSize, Qt
 from PyQt6.QtWidgets import (
     QApplication, 
     QGridLayout,
-    QVBoxLayout,
     QStackedLayout,
     QWidget,
     QLabel,
     QPushButton,
-    QLineEdit,
+    QListWidget,
     QComboBox,
 )
 
@@ -153,37 +152,132 @@ class MainWindow(QWidget):
         title_label.setStyleSheet("background-color:#AD8B73; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
         selector_layout.addWidget(title_label, 0, 0, 1, 4)
 
-        recipe_selector = QComboBox()
-        recipe_selector.setFont(QFont("Josefin Sans", 10))
-        recipe_selector.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
-        recipe_selector.addItems(["Salmon", "Quiche", "Skillet Meal", "Shrimp Risotto", "Lemon Bars", "Seven-Layer Bars", "Cowboy Cookies", "Chocolate-Chip Cookies", "Peanut-butter Cookies"])
-        selector_layout.addWidget(recipe_selector, 1, 0, 1, 4)
+        # recipe_selector = QComboBox()
+        # recipe_selector.setFont(QFont("Josefin Sans", 10))
+        # recipe_selector.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
+        # recipe_selector.addItems(["Salmon", "Quiche", "Skillet Meal", "Shrimp Paella", "Lemon Bars", "Seven-Layer Bars", "Cowboy Cookies", "Chocolate-Chip Cookies", "Peanut-butter Cookies"])
+        # selector_layout.addWidget(recipe_selector, 1, 0, 1, 4)
+
+        #recipe buttons
+        salmon = QPushButton("Salmon")
+        salmon.setFont(QFont("Josefin Sans", 12))
+        salmon.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:95px;")
+        salmon.clicked.connect(self.next_page)
+        selector_layout.addWidget(salmon, 1, 0, 1, 1)
+
+        quiche = QPushButton("Quiche")
+        quiche.setFont(QFont("Josefin Sans", 12))
+        quiche.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:95px;")
+        selector_layout.addWidget(quiche, 1, 1, 1, 1)
+
+        skillet = QPushButton("Skillet Meal")
+        skillet.setFont(QFont("Josefin Sans", 12))
+        skillet.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:95px;")
+        selector_layout.addWidget(skillet, 1, 2, 1, 1)
+
+        paella = QPushButton("Shrimp Paella")
+        paella.setFont(QFont("Josefin Sans", 12))
+        paella.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:95px;")
+        selector_layout.addWidget(paella, 1, 3, 1, 1)
+
+        l_bars = QPushButton("Lemon Bars")
+        l_bars.setFont(QFont("Josefin Sans", 12))
+        l_bars.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:95px;")
+        selector_layout.addWidget(l_bars, 2, 0, 1, 1)
+
+        seven_bars = QPushButton("Lemon Bars")
+        seven_bars.setFont(QFont("Josefin Sans", 12))
+        seven_bars.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:95px;")
+        selector_layout.addWidget(seven_bars, 2, 1, 1, 1)
+
+        choco_cookie = QPushButton("Lemon Bars")
+        choco_cookie.setFont(QFont("Josefin Sans", 12))
+        choco_cookie.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:95px;")
+        selector_layout.addWidget(choco_cookie, 2, 2, 1, 1)
+
+        cowboy_cookie = QPushButton("Lemon Bars")
+        cowboy_cookie.setFont(QFont("Josefin Sans", 12))
+        cowboy_cookie.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:95px;")
+        selector_layout.addWidget(cowboy_cookie, 2, 3, 1, 1)
 
         #return
         return_button = QPushButton("Back")
         return_button.setFont(QFont("Josefin Sans", 15))
         return_button.setStyleSheet("background-color:#CEAB93; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
         return_button.clicked.connect(self.home_page)
-        selector_layout.addWidget(return_button, 4, 0, 1, 2)
+        selector_layout.addWidget(return_button, 4, 1, 1, 2)
 
-        #go to recipe output screen
-        output_button = QPushButton("Go!")
-        output_button.setFont(QFont("Josefin Sans", 15))
-        output_button.setStyleSheet("background-color:#CEAB93; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
-        output_button.clicked.connect(self.next_page)
-        selector_layout.addWidget(output_button, 4, 2, 1, 2)
+        # #go to recipe output screen
+        # output_button = QPushButton("Go!")
+        # output_button.setFont(QFont("Josefin Sans", 15))
+        # output_button.setStyleSheet("background-color:#CEAB93; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
+        # output_button.clicked.connect(self.next_page)
+        # selector_layout.addWidget(output_button, 4, 2, 1, 2)
         
         #recipe output screen
-        self.view_recipe_screen = QWidget()
-        self.view_recipe_screen.setLayout(show_layout)
-        self.stacked_layout.addWidget(self.view_recipe_screen)
+        self.view_salmon = QWidget()
+        self.view_salmon.setLayout(show_layout)
+        self.stacked_layout.addWidget(self.view_salmon)
 
         #title label
         title_label = QLabel("Recipe Index - View")
         title_label.setFont(QFont("Josefin Sans", 20, 800))
         title_label.setAlignment(Qt.AlignmentFlag.AlignHCenter)
         title_label.setStyleSheet("background-color:#AD8B73; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
-        show_layout.addWidget(title_label, 0, 0, 1, 4)  
+        show_layout.addWidget(title_label, 0, 0, 1, 4)
+
+        #dish type
+        dish_label = QLabel("Dish Type: Entreé")
+        dish_label.setFont(QFont("Josefin Sans", 10))
+        dish_label.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        show_layout.addWidget(dish_label, 1, 0, 1, 1)
+
+        #prep time
+        prep = QLabel("Prep Time: 15 min")
+        prep.setFont(QFont("Josefin Sans", 10))
+        prep.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        show_layout.addWidget(prep, 1, 1, 1, 1)
+
+        #total time
+        total = QLabel("Total Time: 30 min")
+        total.setFont(QFont("Josefin Sans", 10))
+        total.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        show_layout.addWidget(total, 1, 2, 1, 1)
+
+        #servings 
+        servings = QLabel("Servings: 6")
+        servings.setFont(QFont("Josefin Sans", 10))
+        servings.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        show_layout.addWidget(servings, 1, 3, 1, 1)
+
+        #steps list
+        steps = QListWidget()
+        steps.addItems(["Ingredients: ", "- 2 pound side of salmon", "- 2 tablespoons olive oil", "- 2 small lemons", "- Additional fresh herbs", 
+                        " ", "Instructions: ", "- Remove salmon from the refridgerator and let stand at room temperature for 10", 
+                        "    minutes while you prepare the other ingredients. Heat oven to 375 degrees F.",
+                        "    Line a large baking dish with a large piece of aluminum foil",
+                        "- Lightly coat the foil with baking spray, then cut one lemon into thin slices",
+                        "    and arrange half the slices and fresh herbs down the center.",
+                        "    Place the salmon on top.",
+                        "- Drizzle the salmon with oil and lay the remaining lemon slices and herbs on top.",
+                        "    Juice the other lemon and pour the juice on top as well.",
+                        "- Fold the sides of the foil up and over top of the salmon until it is completely",
+                        "    enclosed and forms a sealed packet. Leave a little room for air to circulate.",
+                        "- Bake the salmon for 15 - 20 minutes, until the salmon is almost completely ",
+                        "    cooked through at the thickest part. The cooking time will vary based on the",
+                        "    thickness of the salmon. If your side is around 1 inch thick, check earlier.",
+                        "    If your side is around 1 1/2 inches or more thick, it may need longer.",
+                        "- Remove salmon from oven and carefully open foil so the top of the fish is ",
+                        "    completely uncovered. Change the oven settings to broil and broil the fish ",
+                        "    for three minutes until the top is slightly golden and it is cooked through.",
+                        "    Watch closely to ensure it doesn't burn. Remove from oven, as salmon can",
+                        "    progress from underdone to overdone very quickly.",
+                        "- To serve, cut salmon into portions and top with fresh herbs or lemon as desired.",
+                        "    If you wish for the author to murder you, add ketchup."
+                        ])
+        steps.setFont(QFont("Josefin Sans", 10))
+        steps.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        show_layout.addWidget(steps, 2, 0, 2, 4)
 
         #reset button
         reset_button = QPushButton("Back")
