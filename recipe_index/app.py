@@ -32,7 +32,14 @@ class MainWindow(QWidget):
         home_layout = QGridLayout()
         calculator_layout = QGridLayout()
         selector_layout = QGridLayout()
-        show_layout = QGridLayout()
+        salmon_layout = QGridLayout()
+        quiche_layout = QGridLayout()
+        skillet_layout = QGridLayout()
+        paella_layout = QGridLayout()
+        lemon_layout = QGridLayout()
+        seven_layout = QGridLayout()
+        choco_layout = QGridLayout()
+        cowboy_layout = QGridLayout()
         self.stacked_layout = QStackedLayout()
         
         # self.layout.addLayout(main_layout)
@@ -168,36 +175,43 @@ class MainWindow(QWidget):
         quiche = QPushButton("Quiche")
         quiche.setFont(QFont("Josefin Sans", 12))
         quiche.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:95px;")
+        quiche.clicked.connect(self.quiche_page)
         selector_layout.addWidget(quiche, 1, 1, 1, 1)
 
         skillet = QPushButton("Skillet Meal")
         skillet.setFont(QFont("Josefin Sans", 12))
         skillet.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:95px;")
+        skillet.clicked.connect(self.skillet_page)
         selector_layout.addWidget(skillet, 1, 2, 1, 1)
 
         paella = QPushButton("Shrimp Paella")
         paella.setFont(QFont("Josefin Sans", 12))
         paella.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:95px;")
+        paella.clicked.connect(self.paella_page)
         selector_layout.addWidget(paella, 1, 3, 1, 1)
 
         l_bars = QPushButton("Lemon Bars")
         l_bars.setFont(QFont("Josefin Sans", 12))
         l_bars.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:95px;")
+        l_bars.clicked.connect(self.lemon_page)
         selector_layout.addWidget(l_bars, 2, 0, 1, 1)
 
         seven_bars = QPushButton("Lemon Bars")
         seven_bars.setFont(QFont("Josefin Sans", 12))
         seven_bars.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:95px;")
+        seven_bars.clicked.connect(self.seven_page)
         selector_layout.addWidget(seven_bars, 2, 1, 1, 1)
 
         choco_cookie = QPushButton("Lemon Bars")
         choco_cookie.setFont(QFont("Josefin Sans", 12))
         choco_cookie.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:95px;")
+        choco_cookie.clicked.connect(self.choco_page)
         selector_layout.addWidget(choco_cookie, 2, 2, 1, 1)
 
         cowboy_cookie = QPushButton("Lemon Bars")
         cowboy_cookie.setFont(QFont("Josefin Sans", 12))
         cowboy_cookie.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:95px;")
+        cowboy_cookie.clicked.connect(self.cowboy_page)
         selector_layout.addWidget(cowboy_cookie, 2, 3, 1, 1)
 
         #return
@@ -206,17 +220,10 @@ class MainWindow(QWidget):
         return_button.setStyleSheet("background-color:#CEAB93; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
         return_button.clicked.connect(self.home_page)
         selector_layout.addWidget(return_button, 4, 1, 1, 2)
-
-        # #go to recipe output screen
-        # output_button = QPushButton("Go!")
-        # output_button.setFont(QFont("Josefin Sans", 15))
-        # output_button.setStyleSheet("background-color:#CEAB93; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
-        # output_button.clicked.connect(self.next_page)
-        # selector_layout.addWidget(output_button, 4, 2, 1, 2)
         
-        #recipe output screen
+        #recipe output screens
         self.view_salmon = QWidget()
-        self.view_salmon.setLayout(show_layout)
+        self.view_salmon.setLayout(salmon_layout)
         self.stacked_layout.addWidget(self.view_salmon)
 
         #title label
@@ -224,31 +231,31 @@ class MainWindow(QWidget):
         title_label.setFont(QFont("Josefin Sans", 20, 800))
         title_label.setAlignment(Qt.AlignmentFlag.AlignHCenter)
         title_label.setStyleSheet("background-color:#AD8B73; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
-        show_layout.addWidget(title_label, 0, 0, 1, 4)
+        salmon_layout.addWidget(title_label, 0, 0, 1, 4)
 
         #dish type
         dish_label = QLabel("Dish Type: Entreé")
         dish_label.setFont(QFont("Josefin Sans", 10))
         dish_label.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
-        show_layout.addWidget(dish_label, 1, 0, 1, 1)
+        salmon_layout.addWidget(dish_label, 1, 0, 1, 1)
 
         #prep time
         prep = QLabel("Prep Time: 15 min")
         prep.setFont(QFont("Josefin Sans", 10))
         prep.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
-        show_layout.addWidget(prep, 1, 1, 1, 1)
+        salmon_layout.addWidget(prep, 1, 1, 1, 1)
 
         #total time
         total = QLabel("Total Time: 30 min")
         total.setFont(QFont("Josefin Sans", 10))
         total.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
-        show_layout.addWidget(total, 1, 2, 1, 1)
+        salmon_layout.addWidget(total, 1, 2, 1, 1)
 
         #servings 
         servings = QLabel("Servings: 6")
         servings.setFont(QFont("Josefin Sans", 10))
         servings.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
-        show_layout.addWidget(servings, 1, 3, 1, 1)
+        salmon_layout.addWidget(servings, 1, 3, 1, 1)
 
         #steps list
         steps = QListWidget()
@@ -277,14 +284,181 @@ class MainWindow(QWidget):
                         ])
         steps.setFont(QFont("Josefin Sans", 10))
         steps.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
-        show_layout.addWidget(steps, 2, 0, 2, 4)
+        salmon_layout.addWidget(steps, 2, 0, 2, 4)
 
         #reset button
         reset_button = QPushButton("Back")
         reset_button.setFont(QFont("Josefin Sans", 15))
         reset_button.setStyleSheet("background-color:#CEAB93; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
         reset_button.clicked.connect(self.return_home_page)
-        show_layout.addWidget(reset_button, 4, 1, 1, 2)
+        salmon_layout.addWidget(reset_button, 4, 1, 1, 2)
+
+        #quiche
+        self.view_quiche = QWidget()
+        self.view_quiche.setLayout(quiche_layout)
+        self.stacked_layout.addWidget(self.view_quiche)
+
+        #title label
+        title_label = QLabel("Recipe Index - View")
+        title_label.setFont(QFont("Josefin Sans", 20, 800))
+        title_label.setAlignment(Qt.AlignmentFlag.AlignHCenter)
+        title_label.setStyleSheet("background-color:#AD8B73; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
+        quiche_layout.addWidget(title_label, 0, 0, 1, 4)
+
+        #dish type
+        dish_label = QLabel("Dish Type: Pie")
+        dish_label.setFont(QFont("Josefin Sans", 10))
+        dish_label.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        quiche_layout.addWidget(dish_label, 1, 0, 1, 1)
+
+        #prep time
+        prep = QLabel("Prep Time: 15 min")
+        prep.setFont(QFont("Josefin Sans", 10))
+        prep.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        quiche_layout.addWidget(prep, 1, 1, 1, 1)
+
+        #total time
+        total = QLabel("Total Time: 65 min")
+        total.setFont(QFont("Josefin Sans", 10))
+        total.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        quiche_layout.addWidget(total, 1, 2, 1, 1)
+
+        #servings 
+        servings = QLabel("Servings: 8")
+        servings.setFont(QFont("Josefin Sans", 10))
+        servings.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        quiche_layout.addWidget(servings, 1, 3, 1, 1)
+
+        #steps list
+        steps = QListWidget()
+        steps.addItems(["Ingredients: ", "1 9-inch pie crust", "1 egg yolk, beaten", "3 eggs", "1 cup shredded chedder cheese",
+                        "1 cup chopped cooked ham", "1 cup broccoli florets", "1 cup skim milk", "3/4 tsp salt", "1/4 tsp pepper",
+                        " ", "Instructions: ", 
+                        "- Preheat oven to 375 degrees F, and prepare pie crust according to package.",
+                        "- Brush pie crust with the egg yolk. Sprinkle shredded cheese, ham, and",
+                        "    broccoli. Place the pie shell onto a baking sheet lined with aluminum foil.",
+                        "- In a medium bowl, whisk the eggs and milk together. Add the salt and pepper, ",
+                        "    and stir to combine. Pour the mixture into the pie shell until around 3/4",
+                        "    full.",
+                        "- Place the baking tray in the oven and bake for 40-45 minutes, until set.",
+                        "- Let the quiche cool for 10 minutes before slicing, so it sets up.",
+                        "- Serve warm and enjoy!"
+                        ])
+        steps.setFont(QFont("Josefin Sans", 10))
+        steps.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        quiche_layout.addWidget(steps, 2, 0, 2, 4)
+
+        #reset button
+        reset_button = QPushButton("Back")
+        reset_button.setFont(QFont("Josefin Sans", 15))
+        reset_button.setStyleSheet("background-color:#CEAB93; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
+        reset_button.clicked.connect(self.return_home_page)
+        quiche_layout.addWidget(reset_button, 4, 1, 1, 2)
+
+        #skillet
+        self.view_skillet = QWidget()
+        self.view_skillet.setLayout(skillet_layout)
+        self.stacked_layout.addWidget(self.view_skillet)
+
+        #title label
+        title_label = QLabel("Recipe Index - View")
+        title_label.setFont(QFont("Josefin Sans", 20, 800))
+        title_label.setAlignment(Qt.AlignmentFlag.AlignHCenter)
+        title_label.setStyleSheet("background-color:#AD8B73; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
+        skillet_layout.addWidget(title_label, 0, 0, 1, 4)
+
+        #dish type
+        dish_label = QLabel("Dish Type: Entrée")
+        dish_label.setFont(QFont("Josefin Sans", 10))
+        dish_label.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        skillet_layout.addWidget(dish_label, 1, 0, 1, 1)
+
+        #prep time
+        prep = QLabel("Prep Time: ? min")
+        prep.setFont(QFont("Josefin Sans", 10))
+        prep.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        skillet_layout.addWidget(prep, 1, 1, 1, 1)
+
+        #total time
+        total = QLabel("Total Time: ? min")
+        total.setFont(QFont("Josefin Sans", 10))
+        total.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        skillet_layout.addWidget(total, 1, 2, 1, 1)
+
+        #servings 
+        servings = QLabel("Servings: ?")
+        servings.setFont(QFont("Josefin Sans", 10))
+        servings.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        skillet_layout.addWidget(servings, 1, 3, 1, 1)
+
+        #steps list
+        steps = QListWidget()
+        steps.addItems(["Ingredients: ",
+                        " ", "Instructions: ", 
+                        ])
+        steps.setFont(QFont("Josefin Sans", 10))
+        steps.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        skillet_layout.addWidget(steps, 2, 0, 2, 4)
+
+        #reset button
+        reset_button = QPushButton("Back")
+        reset_button.setFont(QFont("Josefin Sans", 15))
+        reset_button.setStyleSheet("background-color:#CEAB93; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
+        reset_button.clicked.connect(self.return_home_page)
+        skillet_layout.addWidget(reset_button, 4, 1, 1, 2)
+
+        #paella
+        self.view_paella = QWidget()
+        self.view_paella.setLayout(paella_layout)
+        self.stacked_layout.addWidget(self.view_paella)
+
+        #title label
+        title_label = QLabel("Recipe Index - View")
+        title_label.setFont(QFont("Josefin Sans", 20, 800))
+        title_label.setAlignment(Qt.AlignmentFlag.AlignHCenter)
+        title_label.setStyleSheet("background-color:#AD8B73; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
+        paella_layout.addWidget(title_label, 0, 0, 1, 4)
+
+        #dish type
+        dish_label = QLabel("Dish Type: Entrée")
+        dish_label.setFont(QFont("Josefin Sans", 10))
+        dish_label.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        paella_layout.addWidget(dish_label, 1, 0, 1, 1)
+
+        #prep time
+        prep = QLabel("Prep Time: ? min")
+        prep.setFont(QFont("Josefin Sans", 10))
+        prep.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        paella_layout.addWidget(prep, 1, 1, 1, 1)
+
+        #total time
+        total = QLabel("Total Time: ? min")
+        total.setFont(QFont("Josefin Sans", 10))
+        total.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        paella_layout.addWidget(total, 1, 2, 1, 1)
+
+        #servings 
+        servings = QLabel("Servings: ?")
+        servings.setFont(QFont("Josefin Sans", 10))
+        servings.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        paella_layout.addWidget(servings, 1, 3, 1, 1)
+
+        #steps list
+        steps = QListWidget()
+        steps.addItems(["Ingredients: ",
+                        " ", "Instructions: ", 
+                        ])
+        steps.setFont(QFont("Josefin Sans", 10))
+        steps.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        paella_layout.addWidget(steps, 2, 0, 2, 4)
+
+        #reset button
+        reset_button = QPushButton("Back")
+        reset_button.setFont(QFont("Josefin Sans", 15))
+        reset_button.setStyleSheet("background-color:#CEAB93; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
+        reset_button.clicked.connect(self.return_home_page)
+        paella_layout.addWidget(reset_button, 4, 1, 1, 2)
+
 
         self.setLayout(self.stacked_layout)
         
@@ -316,6 +490,47 @@ class MainWindow(QWidget):
         self.stacked_layout.setCurrentIndex(
             self.stacked_layout.currentIndex() - 3
         )
+
+    def salmon_page(self):
+        self.stacked_layout.setCurrentIndex(
+            self.stacked_layout.currentIndex() + 1
+        )
+    
+    def quiche_page(self):
+        self.stacked_layout.setCurrentIndex(
+            self.stacked_layout.currentIndex() + 2
+        )
+    
+    def skillet_page(self):
+        self.stacked_layout.setCurrentIndex(
+            self.stacked_layout.currentIndex() + 3
+        )
+    
+    def paella_page (self):
+        self.stacked_layout.setCurrentIndex(
+            self.stacked_layout.currentIndex() + 4
+        )
+    
+    def lemon_page(self):
+        self.stacked_layout.setCurrentIndex(
+            self.stacked_layout.currentIndex() + 5
+        )
+
+    def seven_page(self):
+        self.stacked_layout.setCurrentIndex(
+            self.stacked_layout.currentIndex() + 6
+        )
+
+    def choco_page(self):
+        self.stacked_layout.setCurrentIndex(
+            self.stacked_layout.currentIndex() + 7
+        )
+
+    def cowboy_page(self):
+        self.stacked_layout.setCurrentIndex(
+            self.stacked_layout.currentIndex() + 8
+        )
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
