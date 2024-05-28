@@ -396,6 +396,20 @@ class MainWindow(QWidget):
         steps.addItems(["Ingredients: ", "- 3 tbsp oil", "- 1/2 medium onion, diced finely", "- 1 lb diced chicken breast",
                         "- 2 cloves garlic, minced", "- 1 C uncooked long-grain white rice", "- 2 1/2 C chicken broth", 
                         "- 2 1/2 C broccoli florets", "- 2 C shredded chedder cheese", " ", "Instructions: ", 
+                        "- Remove salmon from the refridgerator and let stand at room temperature for 10",
+                        "- In a large skillet, sauté onions in 2 tbsp of oil over medium heat.",
+                        "    Season chicken with salt and pepper.", 
+                        "- Once onions soften, increase heat to medium-high and add chicken to pan.",
+                        "- Brown the chicken pieces and add the garlic. Cook for 1 more minute.",
+                        "- Push chicken to one side of pan and add the last of the oil to the other.",
+                        "- Add uncooked rice to oil and sauté for a few minutes.", 
+                        "- Add the chicken broth to the pan and bring the mixture to a boil.",
+                        "    Lower the heat to a simmer and cover with a lid.",
+                        "- Cook covered mixture for about 12 minutes, then add broccoli and stir.",
+                        "- Continue to cook uncovered for 8 minutes on low, or until tender.",
+                        "- Remove from heat and stir in half a cup of cheese.",
+                        "- Sprinkle remaining cheese on top, cover, and let sit until cheese is melted.",
+                        "- Serve.",
                         ])
         steps.setFont(QFont("Josefin Sans", 10))
         steps.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
@@ -468,6 +482,74 @@ class MainWindow(QWidget):
         paella_layout.addWidget(reset_button, 4, 1, 1, 2)
 
 
+        self.view_lemon = QWidget()
+        self.view_lemon.setLayout(lemon_layout)
+        self.stacked_layout.addWidget(self.view_lemon)
+
+        #title label
+        title_label = QLabel("Recipe Index - View")
+        title_label.setFont(QFont("Josefin Sans", 20, 800))
+        title_label.setAlignment(Qt.AlignmentFlag.AlignHCenter)
+        title_label.setStyleSheet("background-color:#AD8B73; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
+        lemon_layout.addWidget(title_label, 0, 0, 1, 4)
+
+        #dish type
+        dish_label = QLabel("Dish Type: Dessert")
+        dish_label.setFont(QFont("Josefin Sans", 10))
+        dish_label.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        lemon_layout.addWidget(dish_label, 1, 0, 1, 1)
+
+        #prep time
+        prep = QLabel("Prep Time: 10 min")
+        prep.setFont(QFont("Josefin Sans", 10))
+        prep.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        lemon_layout.addWidget(prep, 1, 1, 1, 1)
+
+        #total time
+        total = QLabel("Total Time: 60 min")
+        total.setFont(QFont("Josefin Sans", 10))
+        total.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        lemon_layout.addWidget(total, 1, 2, 1, 1)
+
+        #servings 
+        servings = QLabel("Servings: 24")
+        servings.setFont(QFont("Josefin Sans", 10))
+        servings.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        lemon_layout.addWidget(servings, 1, 3, 1, 1)
+
+        #steps list
+        steps = QListWidget()
+        steps.addItems(["Ingredients: ", "Crust: ", "- 1 C melted unsalted butter", "- 1/2 C granulated sugar",
+                        "- 2 tsp vanilla extract", "- 1/2 tsp salt", "- 2 C and 2 TBSP all-purpose flour",
+                        "Crust: ", "- 1 C melted unsalted butter", "- 1/2 C granulated sugar",
+                        "- 2 tsp vanilla extract", "- 1/2 tsp salt", "- 2 C & 2 TBSP all-purpose flour",
+                        "Filling: ", "- 2 C granulated sugar", "-6 TBSP all-purpose flour",
+                        "- 6 large eggs", "-1 C lemon juice", " ", "Instructions", 
+                        "- Preheat oven to 375 degrees F. Line the bottom and sides of a 9 x 13 glass",
+                        "    pan with parchment paper.",
+                        "- Make the crust: In a large bowl combine melted butter, sugar, vanilla extract",
+                        "    and salt. Add the flour and stir. The dough will be thick. Press into ",
+                        "    prepared pan, making sure the edge of crust is even. Bake for 20-22 ",
+                        "    minutes, or until lightly browned. Remove from oven. Using a fork,",
+                        "    poke holes gently into the crust.",
+                        "- Make the filling:", "Sift together flour and sugar. Whisk in eggs and then",
+                        "    lemon juice until combined.", "- Pour the filling over warm crust.",
+                        "    Bake the bars for 22-26 minutes until the center is set. Remove from oven",
+                        "    and cool completely at room temperature. Once cool, lift out of pan and",
+                        "    cut into squares. Store leftovers in the fridge for up to 1 week.",
+                        ])
+        steps.setFont(QFont("Josefin Sans", 10))
+        steps.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        lemon_layout.addWidget(steps, 2, 0, 2, 4)
+
+        #reset button
+        reset_button = QPushButton("Back")
+        reset_button.setFont(QFont("Josefin Sans", 15))
+        reset_button.setStyleSheet("background-color:#CEAB93; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
+        reset_button.clicked.connect(self.back_lemon)
+        lemon_layout.addWidget(reset_button, 4, 1, 1, 2)
+
+
         self.setLayout(self.stacked_layout)
         
 
@@ -537,6 +619,11 @@ class MainWindow(QWidget):
     def lemon_page(self):
         self.stacked_layout.setCurrentIndex(
             self.stacked_layout.currentIndex() + 5
+        )
+    
+    def back_lemon(self):
+        self.stacked_layout.setCurrentIndex(
+            self.stacked_layout.currentIndex() - 7
         )
 
     def seven_page(self):
