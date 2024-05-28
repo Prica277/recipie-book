@@ -196,19 +196,19 @@ class MainWindow(QWidget):
         l_bars.clicked.connect(self.lemon_page)
         selector_layout.addWidget(l_bars, 2, 0, 1, 1)
 
-        seven_bars = QPushButton("Lemon Bars")
+        seven_bars = QPushButton("7 Layer Bars")
         seven_bars.setFont(QFont("Josefin Sans", 12))
         seven_bars.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:95px;")
         seven_bars.clicked.connect(self.seven_page)
         selector_layout.addWidget(seven_bars, 2, 1, 1, 1)
 
-        choco_cookie = QPushButton("Lemon Bars")
+        choco_cookie = QPushButton("ChocChip Cookie")
         choco_cookie.setFont(QFont("Josefin Sans", 12))
         choco_cookie.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:95px;")
         choco_cookie.clicked.connect(self.choco_page)
         selector_layout.addWidget(choco_cookie, 2, 2, 1, 1)
 
-        cowboy_cookie = QPushButton("Lemon Bars")
+        cowboy_cookie = QPushButton("Cowboy Cookie")
         cowboy_cookie.setFont(QFont("Josefin Sans", 12))
         cowboy_cookie.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:95px;")
         cowboy_cookie.clicked.connect(self.cowboy_page)
@@ -331,8 +331,8 @@ class MainWindow(QWidget):
 
         #steps list
         steps = QListWidget()
-        steps.addItems(["Ingredients: ", "1 9-inch pie crust", "1 egg yolk, beaten", "3 eggs", "1 cup shredded chedder cheese",
-                        "1 cup chopped cooked ham", "1 cup broccoli florets", "1 cup skim milk", "3/4 tsp salt", "1/4 tsp pepper",
+        steps.addItems(["Ingredients: ", "- 1 9-inch pie crust", "- 1 egg yolk, beaten", "- 3 eggs", "- 1 cup shredded chedder cheese",
+                        "- 1 cup chopped cooked ham", "- 1 cup broccoli florets", "- 1 cup skim milk", "- 3/4 tsp salt", "- 1/4 tsp pepper",
                         " ", "Instructions: ", 
                         "- Preheat oven to 375 degrees F, and prepare pie crust according to package.",
                         "- Brush pie crust with the egg yolk. Sprinkle shredded cheese, ham, and",
@@ -352,7 +352,7 @@ class MainWindow(QWidget):
         reset_button = QPushButton("Back")
         reset_button.setFont(QFont("Josefin Sans", 15))
         reset_button.setStyleSheet("background-color:#CEAB93; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
-        reset_button.clicked.connect(self.return_home_page)
+        reset_button.clicked.connect(self.back_quiche)
         quiche_layout.addWidget(reset_button, 4, 1, 1, 2)
 
         #skillet
@@ -374,27 +374,28 @@ class MainWindow(QWidget):
         skillet_layout.addWidget(dish_label, 1, 0, 1, 1)
 
         #prep time
-        prep = QLabel("Prep Time: ? min")
+        prep = QLabel("Prep Time: 5 min")
         prep.setFont(QFont("Josefin Sans", 10))
         prep.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
         skillet_layout.addWidget(prep, 1, 1, 1, 1)
 
         #total time
-        total = QLabel("Total Time: ? min")
+        total = QLabel("Total Time: 30 min")
         total.setFont(QFont("Josefin Sans", 10))
         total.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
         skillet_layout.addWidget(total, 1, 2, 1, 1)
 
         #servings 
-        servings = QLabel("Servings: ?")
+        servings = QLabel("Servings: 6")
         servings.setFont(QFont("Josefin Sans", 10))
         servings.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
         skillet_layout.addWidget(servings, 1, 3, 1, 1)
 
         #steps list
         steps = QListWidget()
-        steps.addItems(["Ingredients: ",
-                        " ", "Instructions: ", 
+        steps.addItems(["Ingredients: ", "- 3 tbsp oil", "- 1/2 medium onion, diced finely", "- 1 lb diced chicken breast",
+                        "- 2 cloves garlic, minced", "- 1 C uncooked long-grain white rice", "- 2 1/2 C chicken broth", 
+                        "- 2 1/2 C broccoli florets", "- 2 C shredded chedder cheese", " ", "Instructions: ", 
                         ])
         steps.setFont(QFont("Josefin Sans", 10))
         steps.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
@@ -404,7 +405,7 @@ class MainWindow(QWidget):
         reset_button = QPushButton("Back")
         reset_button.setFont(QFont("Josefin Sans", 15))
         reset_button.setStyleSheet("background-color:#CEAB93; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
-        reset_button.clicked.connect(self.return_home_page)
+        reset_button.clicked.connect(self.back_skillet)
         skillet_layout.addWidget(reset_button, 4, 1, 1, 2)
 
         #paella
@@ -426,27 +427,34 @@ class MainWindow(QWidget):
         paella_layout.addWidget(dish_label, 1, 0, 1, 1)
 
         #prep time
-        prep = QLabel("Prep Time: ? min")
+        prep = QLabel("Prep Time: 10 min")
         prep.setFont(QFont("Josefin Sans", 10))
         prep.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
         paella_layout.addWidget(prep, 1, 1, 1, 1)
 
         #total time
-        total = QLabel("Total Time: ? min")
+        total = QLabel("Total Time: 45 min")
         total.setFont(QFont("Josefin Sans", 10))
         total.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
         paella_layout.addWidget(total, 1, 2, 1, 1)
 
         #servings 
-        servings = QLabel("Servings: ?")
+        servings = QLabel("Servings: 4")
         servings.setFont(QFont("Josefin Sans", 10))
         servings.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
         paella_layout.addWidget(servings, 1, 3, 1, 1)
 
         #steps list
         steps = QListWidget()
-        steps.addItems(["Ingredients: ",
-                        " ", "Instructions: ", 
+        steps.addItems(["Ingredients: ", "- 1 lb jumbo shrimp, frozen with shell on", "- 1 C jasmine rice", "- 4 TBSP butter",
+                        "- 1 onion, diced", "- 4 cloves minced garlic", "- 1 C chicken broth", "- 1/2 C white wine",
+                        " ", "Instructions: ", "- Set Instant Pot to saute function, and melt butter in it.",
+                        "    Add onion and cook until softened. Add garlic and cook a minute more.",
+                        "- Add chicken broth, white wine, and rice. Stir and cook for a minute. Deglaze ",
+                        "    your pot by stirring to ensure nothing is sticking to the bottom.",
+                        "- Add shrimp to pot. Turn off Instant Pot and cover. Ensure valve is in sealing.",
+                        "- Set Instant Pot to pressure cook for five minutes. When done, quick release.",
+                        "- Remove from Instant Pot and serve.",
                         ])
         steps.setFont(QFont("Josefin Sans", 10))
         steps.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
@@ -456,7 +464,7 @@ class MainWindow(QWidget):
         reset_button = QPushButton("Back")
         reset_button.setFont(QFont("Josefin Sans", 15))
         reset_button.setStyleSheet("background-color:#CEAB93; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
-        reset_button.clicked.connect(self.return_home_page)
+        reset_button.clicked.connect(self.back_paella)
         paella_layout.addWidget(reset_button, 4, 1, 1, 2)
 
 
@@ -500,10 +508,20 @@ class MainWindow(QWidget):
         self.stacked_layout.setCurrentIndex(
             self.stacked_layout.currentIndex() + 2
         )
-    
+
+    def back_quiche(self):
+        self.stacked_layout.setCurrentIndex(
+            self.stacked_layout.currentIndex() - 4
+        )
+
     def skillet_page(self):
         self.stacked_layout.setCurrentIndex(
             self.stacked_layout.currentIndex() + 3
+        )
+    
+    def back_skillet(self):
+        self.stacked_layout.setCurrentIndex(
+            self.stacked_layout.currentIndex() - 5
         )
     
     def paella_page (self):
@@ -511,6 +529,11 @@ class MainWindow(QWidget):
             self.stacked_layout.currentIndex() + 4
         )
     
+    def back_paella(self):
+        self.stacked_layout.setCurrentIndex(
+            self.stacked_layout.currentIndex() - 6
+        )
+
     def lemon_page(self):
         self.stacked_layout.setCurrentIndex(
             self.stacked_layout.currentIndex() + 5
@@ -530,6 +553,8 @@ class MainWindow(QWidget):
         self.stacked_layout.setCurrentIndex(
             self.stacked_layout.currentIndex() + 8
         )
+
+    
 
 
 if __name__ == "__main__":
