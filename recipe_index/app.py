@@ -549,6 +549,55 @@ class MainWindow(QWidget):
         reset_button.clicked.connect(self.back_lemon)
         lemon_layout.addWidget(reset_button, 4, 1, 1, 2)
 
+        #title label
+        title_label = QLabel("Recipe Index - View")
+        title_label.setFont(QFont("Josefin Sans", 20, 800))
+        title_label.setAlignment(Qt.AlignmentFlag.AlignHCenter)
+        title_label.setStyleSheet("background-color:#AD8B73; color:#3E3028; border-radius:4px; padding:10px; height:30px;")
+        seven_layout.addWidget(title_label, 0, 0, 1, 4)
+
+        #dish type
+        dish_label = QLabel("Dish Type: Dessert")
+        dish_label.setFont(QFont("Josefin Sans", 10))
+        dish_label.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        seven_layout.addWidget(dish_label, 1, 0, 1, 1)
+
+        #prep time
+        prep = QLabel("Prep Time: 10 min")
+        prep.setFont(QFont("Josefin Sans", 10))
+        prep.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        seven_layout.addWidget(prep, 1, 1, 1, 1)
+
+        #total time
+        total = QLabel("Total Time: 60 min")
+        total.setFont(QFont("Josefin Sans", 10))
+        total.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        seven_layout.addWidget(total, 1, 2, 1, 1)
+
+        #servings 
+        servings = QLabel("Servings: 24")
+        servings.setFont(QFont("Josefin Sans", 10))
+        servings.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        seven_layout.addWidget(servings, 1, 3, 1, 1)
+
+        #steps list
+        steps = QListWidget()
+        steps.addItems(["Ingredients: ", "- 2 C graham cracker crumbs", "- 1/2 C unsalted butter, melted",
+                        "- 14 oz sweetened condensed milk", "- 1 C semi-sweet chocolate chips", 
+                        "- 1 C butterscotch chips", "- 1 C chopped pecans", "- 1 C shredded sweetened coconut", " ", 
+                        "Instructions: ", "- Preheat oven to 350 degrees F, and line a",
+                        "	9 x 13 pan with parchment paper.", 
+                        "- Crust: Combine graham cracker crumbs and melted butter until the crumbs hold",
+                        "	together when squeezed in your hand. Press into pan in an even layer.",
+                        "- Pour the sweetened condensed milk evenly over the crust.",
+                        "- Layer on the rest of the toppings in order: chocolate chips, butterscotch",
+                        "	chips, pecans, and coconut. Gently press into the sweetened condensed milk",
+                        "- Bake in the oven for 30-35 minutes, until the edges turn golden-brown.",
+                        "- Remove from oven and cool completely before slicing and serving.",
+                        ])
+        steps.setFont(QFont("Josefin Sans", 10))
+        steps.setStyleSheet("background-color:#E3CAA5; color:#3E3028; border-radius:4px; padding:10px; height:50px;")
+        seven_layout.addWidget(steps, 2, 0, 2, 4)
 
         self.setLayout(self.stacked_layout)
         
