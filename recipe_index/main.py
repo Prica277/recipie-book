@@ -2,6 +2,7 @@
 Filename: main.py
 Author: Alex Price
 Description: The bulk of the project's code.
+The initial version of app.py, when I didn't have the visual portion.
 """
 import utilities
 

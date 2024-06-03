@@ -2,6 +2,7 @@
 Filename: home_screen.py
 Author: Alex Price
 Description: The layout for the home screen of the Recipe Index app.
+Initial concept that I was worried about tainting, not used in the main app.
 """
 import sys
 

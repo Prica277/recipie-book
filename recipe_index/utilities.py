@@ -2,7 +2,7 @@
 Filename: utilities.py
 Author: Alex Price
 Description: A set of functions to be used to make the program more useful and 
-be used in similar projects.
+be used in similar projects. Ended up unused entirely.
 """
 
 # import statements
